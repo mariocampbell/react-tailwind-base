@@ -1,42 +1,21 @@
 import React from 'react'
-import Tailwindcss from './assets/images/tailwindcss-logo.png'
-import ReactLogo from './assets/images/react-logo.svg'
+import IsoMarioCampbell from './assets/images/iso-mario-campbell.svg'
 
 const App = () => {
     return(
-        <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="sm:flex sm:items-center px-6 py-4">
-                <div
-                class="flex items-center justify-center sm:flex-col sm:w-24 sm:border sm:border-gray-500 sm:rounded-full"
-                >
-                    <img
-                    class="block sm:mx-auto mx-0 flex-shrink-0 h-16 sm:h-12"
-                    src={ Tailwindcss }
-                    alt="Tailwind CSS Logo"
-                    />
-                <img
-                    class="block sm:mx-auto mx-0 flex-shrink-0 h-16 sm:h-12"
-                    src={ ReactLogo }
-                    alt="React Logo"
-                />
-                </div>
-
-                <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left">
-                <p class="text-xl leading-tight">Tailwind CSS & React JS</p>
-                <p class="text-sm leading-tight text-gray-600">
-                    With custom webpack configuration!
-                </p>
-                <div class="mt-4">
-                    <button
-                    class="text-purple-500 hover:text-white hover:bg-purple-500 border border-purple-500 text-xs font-semibold rounded-full px-4 py-1 leading-normal"
-                    >
-                    GO
-                    </button>
-                </div>
-                </div>
+        <div className='h-screen flex justify-center items-center'>
+            <div className='flex flex-col items-center'>
+                <a href="http://mariocampbell.com.ar" target='_blank'><img className='w-16' src={ IsoMarioCampbell } alt="isotipo Mario Campbell"/></a>
+                <p className='text-gray-600 pt-2'>
+                    <a href="https://www.behance.net/mariocampbell" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-behance"></i></a>
+                    <a href="https://www.linkedin.com/in/mario-campbell-18845924/" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-linkedin-in"></i></a>
+                    <a href="https://codepen.io/mariocampbell" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-codepen"></i></a>
+                    <a href="https://github.com/mariocampbell" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-git"></i></a>
+                    </p>
+                <a  href="http://mariocampbell.com.ar" target='_blank'><h1 className='uppercase text-white text-3xl text-center'>Mario Campbell</h1></a>
+                <p className='text-gray-700 text-sm pt-6'>Proyecto base creado con <a className='uppercase font-semibold hover:text-white transition-colors duration-300 ease-in-out' href="https://webpack.js.org/" target='_blank'>Webpack</a> - <a className='uppercase font-semibold hover:text-white transition-colors duration-300 ease-in-out' href="https://es.reactjs.org/" target='_blank'>React js</a> - <a className='uppercase font-semibold hover:text-white transition-colors duration-300 ease-in-out' href="https://tailwindcss.com/" target='_blank'>Tailwind Css</a></p>
             </div>
-        </div>
-
+        </div>    
     )
 }
 
