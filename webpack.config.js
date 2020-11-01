@@ -14,8 +14,11 @@ module.exports = {
     },
 
     plugins: [
-        new HtmlWebpackPlugin({ template: path.join(__dirname, 'public/index.html')}),
-        new MiniCssExtractPlugin({ filename: 'css/[name].css', chunkFilename: 'css/[id].css' })
+        new MiniCssExtractPlugin({ filename: 'css/[name].css', chunkFilename: 'css/[id].css' }),
+        new HtmlWebpackPlugin({ 
+            template: path.join(__dirname, 'public/index.html'),
+            favicon: path.join(__dirname, 'src/assets/images/favicon.png')
+        }),
     ],
 
     module: {
@@ -43,14 +46,26 @@ module.exports = {
                         }
                     },
                     'css-loader?sourceMap',
+                    'resolve-url-loader?sourceMap',
                     'sass-loader?sourceMap',
                     'postcss-loader?sourceMap'
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/,
-                loader: 'file-loader',
-                options: { name: 'images/[name].[ext]'}
+                test: /\.(jpe?g|png|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: { name: 'images/[name].[ext]'}
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                          bypassOnDebug: true, // webpack@1.x
+                          disable: true, // webpack@2.x and newer
+                        }
+                    }
+                ]
             }
         ]
     },
