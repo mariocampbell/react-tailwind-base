@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IsoMarioCampbell from '../../images/iso-mario-campbell.svg'
+import { IsoMarioCampbell } from '../../images'
 
 function LogoMC(props) {
     return (
