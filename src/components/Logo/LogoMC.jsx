@@ -12,7 +12,7 @@ function LogoMC(props) {
                 <a href="https://codepen.io/mariocampbell" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-codepen"></i></a>
                 <a href="https://github.com/mariocampbell" target='_blank'><i className="p-2 fab hover:text-white transition-colors duration-300 ease-in-out fa-git"></i></a>
                 </p>
-            <a  href="http://mariocampbell.com.ar" target='_blank'><h1 className='uppercase text-white text-3xl text-center'>Mario Campbell</h1></a>
+            <a  href="http://mariocampbell.com.ar" target='_blank'><h1 className='uppercase font-logotipo text-white text-3xl text-center'>Mario Campbell</h1></a>
         </div>
     );
 }
