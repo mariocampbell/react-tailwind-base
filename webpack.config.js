@@ -1,25 +1,24 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path'),
-      HtmlWebpackPlugin = require('html-webpack-plugin')
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      glob = require('glob-all'),
+      PurgeCSSPlugin = require('purgecss-webpack-plugin')
+
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+  public: path.join(__dirname, 'public')
+}
 
 module.exports = {
 
     devtool: 'source-map',
 
-    entry: [ '@babel/polyfill', path.join(__dirname, 'src/index.js') ], 
+    entry: [ '@babel/polyfill', path.join(__dirname, 'src/index.js') ],
 
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
-
-    plugins: [
-        new MiniCssExtractPlugin({ filename: 'css/[name].css', chunkFilename: 'css/[id].css' }),
-        new HtmlWebpackPlugin({ 
-            template: path.join(__dirname, 'public/index.html'),
-            favicon: path.join(__dirname, 'src/assets/images/favicon.png')
-        }),
-    ],
 
     module: {
         rules: [
@@ -69,6 +68,15 @@ module.exports = {
             }
         ]
     },
+
+    plugins: [
+        new MiniCssExtractPlugin({ filename: 'css/[name].css', chunkFilename: 'css/[id].css' }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'public/index.html'),
+            favicon: path.join(__dirname, 'src/assets/images/favicon.png')
+        }),
+        new PurgeCSSPlugin({ paths: glob.sync([ `${PATHS.public}/**/*`, `${PATHS.src}/**/*`], { nodir: true }) }),
+    ],
 
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
