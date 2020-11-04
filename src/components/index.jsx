@@ -1,1 +1,1 @@
-export { default as Logo } from './Logo/Logomcmpbll.jsx'
+export { default as LogoMC } from './Logo/Logomcmpbll.jsx'
